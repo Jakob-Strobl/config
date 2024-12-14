@@ -21,7 +21,7 @@ fi
 copy_from_device() {
   if [[ "$isWindows" ]]; then
     echo "Copying from windows device to repo..."
-    robocopy "%AppData%\helix" "C:\Users\%USERNAME%\source\config\helix" /E /MIR /XD ".git"
+    robocopy "%AppData%\helix" "C:\Users\%USERNAME%\source\config\helix" /mir /xd ".git"
   elif [[ "$isMacOrLinux" ]]; then
     echo "Copying from mac/linux device to repo..."
     rsync -rv --exclude '**/.git/' ~/.config/helix/ ~/src/config/helix/
@@ -31,7 +31,7 @@ copy_from_device() {
 copy_from_repo() {
   if [[ "$isWindows" ]]; then
     echo "Copying from repo to windows device..."
-    robocopy "C:\Users\%USERNAME%\source\config\helix" "%AppData%\helix" /E /MIR /XD ".git"
+    robocopy "C:\Users\%USERNAME%\source\config\helix" "%AppData%\helix" /mir /xd ".git"
   elif [[ "$isMacOrLinux" ]]; then
     echo "Copying from repo to mac/linux device..."
     rsync -rv --exclude '**/.git/' ~/src/config/helix/ ~/.config/helix/
