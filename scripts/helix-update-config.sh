@@ -5,7 +5,7 @@ helix_config_source_windows=$(cygpath -w "$HOME/AppData/Roaming/helix")
 helix_config_repo_unix=~/src/config/helix/
 helix_config_repo_windows=$(cygpath -w "$HOME/source/config/helix")
 
-echo "1. Copy from device to repo"
+echo "1. Update repo from device"
 echo "2. Update device from repo"
 read -p "Choose an action (1 or 2): " choice
 
