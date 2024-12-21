@@ -5,8 +5,8 @@ helix_config_source_windows=$(cygpath -w "$HOME/AppData/Roaming/helix")
 helix_config_repo_unix=~/src/config/helix/
 helix_config_repo_windows=$(cygpath -w "$HOME/source/config/helix")
 
-echo "1. Update repo from device"
-echo "2. Update device from repo"
+echo "1. Update repo"
+echo "2. Install config"
 read -p "Choose an action (1 or 2): " choice
 
 # Helix has a different config location for windows
@@ -21,8 +21,7 @@ elif [[ "$OSTYPE" == "msys"* ]]; then
   isWindows="true"
 fi
 
-
-copy_from_device() {
+update_repo() {
   if [[ "$isWindows" ]]; then
     echo "Copying from windows device to repo..."
     robocopy  "$helix_config_source_windows" "$helix_config_repo_windows"
@@ -32,12 +31,12 @@ copy_from_device() {
   fi
 }
 
-copy_from_repo() {
+install_on_device() {
   if [[ "$isWindows" ]]; then
-    echo "Copying from repo to windows device..."
+    echo "Installing config on windows device..."
     robocopy "$helix_config_repo_windows" "$helix_config_source_windows"
   elif [[ "$isMacOrLinux" ]]; then
-    echo "Copying from repo to mac/linux device..."
+    echo "Installing config on mac/linux device..."
     rsync -rv --exclude '**/.git/' "$helix_config_repo_unix" "$helix_config_source_unix"   
   fi
 }
@@ -45,13 +44,13 @@ copy_from_repo() {
 
 case "$choice" in 
   1)
-    copy_from_device
-    echo "Completed copy to repo"
+    update_repo
+    echo "Updated helix on config repo"
     break
     ;;
   2)
-    copy_from_repo   
-    echo "Completed copy from repo"
+    install_on_device
+    echo "Installed helix config on device"
     break
     ;;
   *)
