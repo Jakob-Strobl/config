@@ -4,7 +4,15 @@ language-servers = [ "typescript-language-server", "tailwindcss-ls", "eslint" ]
 
 [[language]]
 name = "tsx"
+file-types = ["tsx"]
 language-servers = [ "typescript-language-server", "tailwindcss-ls", "eslint" ]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
+
+[[language]]
+name = "typescript"
+file-types = ["ts"]
+language-servers = [ "typescript-language-server", "eslint" ]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 auto-format = true
 
