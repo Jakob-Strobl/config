@@ -1,4 +1,4 @@
-theme = "tokyonight_moon"
+theme = "zenburn"
 
 [editor]
 line-number = "relative"
@@ -13,4 +13,3 @@ enable = true
 insert = "bar"
 normal = "block"
 select = "underline"
-
