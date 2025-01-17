@@ -27,8 +27,8 @@ language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = true
 includeInlayFunctionLikeReturnTypeHints = true
-includeInlayFunctionParameterTypeHints = true
-includeInlayParameterNameHints = "literals"
+includeInlayFunctionParameterTypeHints = false
+includeInlayParameterNameHints = "all"
 includeInlayParameterNameHintsWhenArgumentMatchesName = false
 includeInlayPropertyDeclarationTypeHints = true
-includeInlayVariableTypeHints = false
+includeInlayVariableTypeHints = true
