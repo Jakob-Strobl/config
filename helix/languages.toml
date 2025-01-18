@@ -1,6 +1,16 @@
 [[language]]
+name = "javascript"
+file-types = ["js"]
+language-servers = [ "typescript-language-server", "tailwindcss-ls", "eslint" ]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript" ] }
+auto-format = true
+
+
+[[language]]
 name = "jsx"
 language-servers = [ "typescript-language-server", "tailwindcss-ls", "eslint" ]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript" ] }
+auto-format = true
 
 [[language]]
 name = "tsx"
