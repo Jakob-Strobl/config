@@ -2,6 +2,10 @@ theme = "zenburn"
 
 [editor]
 line-number = "relative"
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
 
 [editor.lsp]
 display-inlay-hints = true
