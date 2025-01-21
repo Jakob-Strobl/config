@@ -17,3 +17,14 @@ enable = true
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[keys.normal.space]
+m = ":open *.md"
+
+# VERSION(25.01): Introduced Macro keybindings
+# WARN(25.01): Combining combine macros with regular commands is not supported yet.
+#   Example was provided in release notes
+# 
+# Open new markdown with "!C " to quickly start chatting
+";" = "@ mi!C "
+
