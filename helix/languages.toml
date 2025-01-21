@@ -40,6 +40,13 @@ parameters = { max_content = 4096, max_tokens = 4096, system = "You are an AI co
 post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
 
 
+[[language-server.lsp-ai.config.actions]]
+action_display_name = "Fix ESLINT"
+model = "haiku"
+parameters = { max_content = 4096, max_tokens = 4096, system = "You are an AI coding assistant specializing in code refactoring. Your job is to analyze the selected text in constext and consider the eslint error in the diagnostics and rewrite the line or lines to fix the eslint rule. Do this as concisely as possible. If one line is selected, most likely the anser is also one line. Replace the selected text with the answer. Wrap your refactored code solution in <answer> tags.\n\nYour response should always include both the reasoning and the refactored code. ", messages = [ { role = "user", content = "{SELECTED_TEXT}" } ] }
+post_process = { extractor = "(?s)<answer>(.*?)</answer>" }
+
+
 ################################
 # Language setup for file type #
 ################################
