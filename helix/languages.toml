@@ -94,6 +94,13 @@ language-servers = [ "vscode-html-language-server", "emmet-lsp", "tailwindcss-ls
 command = "emmet-language-server"
 args = ["--stdio"]
 
+[[language]]
+name = "zig"
+file-types = ["zig"]
+language-servers = [ "zls", "lsp-ai" ]
+auto-format = true
+
+
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = true
 includeInlayFunctionLikeReturnTypeHints = true
