@@ -61,24 +61,23 @@ language-servers = [ "typescript-language-server", "vscode-eslint-language-serve
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript" ] }
 auto-format = true
 
+[[language]]
+name = "typescript"
+file-types = ["ts"]
+language-servers = [ "typescript-language-server", "lsp-ai", "vscode-eslint-language-server"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+auto-format = true
 
 [[language]]
 name = "jsx"
-language-servers = [ "typescript-language-server", "tailwindcss-ls", "vscode-eslint-language-server", "vscode-html-language-server"  ]
+language-servers = [ "typescript-language-server", "emmet-lsp", "tailwindcss-ls", "vscode-eslint-language-server", "vscode-html-language-server"  ]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript" ] }
 auto-format = true
 
 [[language]]
 name = "tsx"
 file-types = ["tsx"]
-language-servers = [ "typescript-language-server", "lsp-ai", "tailwindcss-ls", "vscode-eslint-language-server", "vscode-html-language-server" ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-auto-format = true
-
-[[language]]
-name = "typescript"
-file-types = ["ts"]
-language-servers = [ "typescript-language-server", "lsp-ai", "vscode-eslint-language-server"]
+language-servers = [ "typescript-language-server", "emmet-lsp", "lsp-ai", "tailwindcss-ls", "vscode-eslint-language-server", "vscode-html-language-server" ]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 auto-format = true
 
@@ -88,7 +87,12 @@ language-servers = [ "vscode-css-language-server", "tailwindcss-ls" ]
 
 [[language]]
 name = "html"
-language-servers = [ "vscode-html-language-server", "tailwindcss-ls" ]
+roots = [".git"]
+language-servers = [ "vscode-html-language-server", "emmet-lsp", "tailwindcss-ls" ]
+
+[language-server.emmet-lsp]
+command = "emmet-language-server"
+args = ["--stdio"]
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = true
