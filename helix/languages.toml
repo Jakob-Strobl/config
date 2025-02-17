@@ -85,17 +85,17 @@ auto-format = true
 # formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 # auto-format = true
 
-[[language]]
-name = "typescript"
-roots = ["deno.json"]
-shebangs = ["deno"]
-grammar = "typescript"
-language-id = "typescript" # https://docs.deno.com/runtime/reference/lsp_integration/#language-ids
-file-types = [{ glob = "*.deno.ts" }]
-scope = "source.deno.ts"
-language-servers = ["deno-lsp", "lsp-ai", "vscode-eslint-language-server"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-auto-format = true
+# [[language]]
+# name = "typescript"
+# roots = ["deno.json"]
+# shebangs = ["deno"]
+# grammar = "typescript"
+# language-id = "typescript" # https://docs.deno.com/runtime/reference/lsp_integration/#language-ids
+# file-types = [{ glob = "*.deno.ts" }]
+# scope = "source.deno.ts"
+# language-servers = ["deno-lsp", "lsp-ai", "vscode-eslint-language-server"]
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# auto-format = true
 
 [[language]]
 name = "jsx"
