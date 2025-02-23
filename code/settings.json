@@ -1,0 +1,62 @@
+{
+    "workbench.colorTheme": "Bearded Theme Arc Eggplant",
+    "dart.flutterSdkPath": "/opt/homebrew/Caskroom/flutter/3.24.1/flutter",
+    "lsp-ai.serverConfiguration": {
+        "memory": {
+            "file_store": {}
+        },
+        "models": {
+            "haiku": {
+                "type": "anthropic",
+                "chat_endpoint": "https://api.anthropic.com/v1/messages",
+                "model": "claude-3-5-haiku-20241022",
+                "auth_token_env_var_name": "ANTHROPIC_API_KEY"
+            }
+        },
+        "chat": [
+            {
+                "trigger": "!C",
+                "action_display_name": "Chat",
+                "model": "haiku",
+                "parameters": {
+                    "max_context": 8192,
+                    "max_tokens": 4096,
+                    "system": "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
+                }
+            }
+        ],
+        "actions": [
+            {
+                "action_display_name": "Complete",
+                "model": "haiku",
+                "parameters": {
+                    "max_content": 8192,
+                    "max_tokens": 4096,
+                    "system": "You are an AI coding assistant. Your task is to complete code snippets. The user's cursor position is marked by \"<CURSOR>\". Follow these steps:\n\n1. Analyze the code context and the cursor position.\n2. Provide your chain of thought reasoning, wrapped in <reasoning> tags. Include thoughts about the cursor position, what needs to be completed, and any necessary formatting.\n3. Determine the appropriate code to complete the current thought, including finishing partial words or lines.\n4. Replace \"<CURSOR>\" with the necessary code, ensuring proper formatting and line breaks.\n5. Wrap your code solution in <answer> tags.\n\nYour response should always include both the reasoning and the answer. Pay special attention to completing partial words or lines before adding new lines of code.",
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": "{CODE}"
+                        }
+                    ]
+                },
+                "post_process": {
+                    "extractor": "(?s)<answer>(.*?)</answer>"
+                }
+            }
+        ]
+    },
+    "editor.quickSuggestions": {
+        "other": "inline"
+    },
+    "editor.quickSuggestionsDelay": 750,
+    "macros.list": {
+        "startChat": [
+            "workbench.action.files.newUntitledFile",
+            "workbench.action.editor.changeLanguageMode",
+            {"command": "type", "args": {"text": "markdown" }}
+        ]
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+}
